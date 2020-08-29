@@ -23,7 +23,7 @@ class PagerfantaPaginatorAdapter implements PaginatorInterface
     /**
      * The paginator instance.
      *
-     * @var \Pagerfanta\Pagerfanta
+     * @var \Pagerfanta\Pagerfanta<mixed>
      */
     protected $paginator;
 
@@ -37,7 +37,7 @@ class PagerfantaPaginatorAdapter implements PaginatorInterface
     /**
      * Create a new pagerfanta pagination adapter.
      *
-     * @param \Pagerfanta\Pagerfanta $paginator
+     * @param \Pagerfanta\Pagerfanta<mixed> $paginator
      * @param callable               $routeGenerator
      *
      * @return void
@@ -87,10 +87,9 @@ class PagerfantaPaginatorAdapter implements PaginatorInterface
     {
         $page = $this->paginator->getCurrentPageResults();
 
-        if (is_countable($page)) {
+        if (is_array($page) || $page instanceof \Countable) {
             return count($page);
         }
-
         return 0;
     }
 
@@ -119,7 +118,7 @@ class PagerfantaPaginatorAdapter implements PaginatorInterface
     /**
      * Get the paginator instance.
      *
-     * @return \Pagerfanta\Pagerfanta
+     * @return \Pagerfanta\Pagerfanta<mixed>
      */
     public function getPaginator()
     {
