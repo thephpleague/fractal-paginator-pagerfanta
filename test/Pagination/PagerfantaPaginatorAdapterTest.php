@@ -3,7 +3,7 @@
 namespace League\Fractal\Test\Pagination;
 
 use League\Fractal\Pagination\PagerfantaPaginatorAdapter;
-use League\Fractal\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 use Mockery;
 
 class PagerfantaPaginatorAdapterTest extends TestCase
